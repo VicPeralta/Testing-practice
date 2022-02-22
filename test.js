@@ -6,26 +6,13 @@ describe('checksum', () => {
     size = stringLength("Hello");
     expect(size).toBe(5);
   });
+
   test('Checking string size 0', () => {
-    let size = 0;
-    try {
-      size = stringLength('');
-    }
-    catch (e) {
-      expect(e).toBe('String size error');
-    }
-    expect(size).toBe(0);
+    expect(() => stringLength('')).toThrow('String size error');
   });
 
   test('Checking string size >10', () => {
-    let size = 0;
-    try {
-      size = stringLength('HelloHello2');
-    }
-    catch (e) {
-      expect(e).toBe('String size error');
-    }
-    expect(size).toBe(0);
+    expect(() => stringLength('HelloHello2')).toThrow('String size error');
   });
 });
 
